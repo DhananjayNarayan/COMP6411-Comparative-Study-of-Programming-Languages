@@ -1,25 +1,25 @@
 4.2.1
-What classes, if any, are present in the program?
+What classes, if any, are present in the program? - NON-GROUND
 class(X).
 
 4.2.2
-What methods, if any, does class ’Human’ define?
+What methods, if any, does class ’Human’ define? - NON-GROUND
 defines(human,X,method,_).
 
 4.2.3 - 
-Does class ’Android’ define an attribute named ’version’?
+Does class ’Android’ define an attribute named ’version’? - GROUND
 defines(android,version,attribute,_).
 
 4.2.4
-Does class ’Machine’ define a method named ’hasMemories()’?
+Does class ’Machine’ define a method named ’hasMemories()’? - GROUND
 defines(machine,hasmemories,method,_).
 
 4.2.5
-Which class, if any, extends class ’Human’?
+Which class, if any, extends class ’Human’? - NON-GROUND
 extends(X,human).
 
 4.2.6
-Which type, if any, implements interface ’Behavior2’?
+Which type, if any, implements interface ’Behavior2’? - NON-GROUND
 implements(X,behavior2).
 
 Note - Doubt to be discussed in meeting. 
