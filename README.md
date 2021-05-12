@@ -1,5 +1,5 @@
 # COMP6411: Comparative Study of Programming Languages - Team 09
-Submitted Assignments for the COMP 6411-Summer 2021 course at Concordia University.
+Submitted Assignments for the COMP 6411- Summer 2021 course at Concordia University.
 
 ## Team Members
 
