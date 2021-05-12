@@ -10,3 +10,6 @@ Submitted Assignments for the COMP-6411 - Summer 2021 course at Concordia Univer
 
 ## Course Page
 <a href="https://users.encs.concordia.ca/~cc/comp6411/">COMP 6411-AA: Comparative Study of Programming Languages </a>
+
+## Instructor
+<a href="https://users.encs.concordia.ca/~cc/">Dr. Constantinos Constantinides </a>
