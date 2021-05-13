@@ -4,11 +4,10 @@ class(android).
 class(machine).
 class(android2).
 
-construction(human,default).
+
 construction(bladerunner,string).
 construction(bladerunner,default).
 construction(android,int).
-construction(machine,default).
 construction(android2,int).
 construction(android2,default).
 
