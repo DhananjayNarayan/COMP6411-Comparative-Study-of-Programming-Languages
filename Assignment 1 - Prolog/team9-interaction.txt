@@ -51,6 +51,3 @@ X = bladerunner.
 X = android2.
 
 
-
-Note - Doubt to be discussed in meeting. 
-What implements behavior2? Android or android2>
