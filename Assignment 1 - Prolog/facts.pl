@@ -43,6 +43,12 @@ implements(human,behavior).
 implements(machine,behavior).
 implements(android2,behavior2).
 
+lazy_class(P) :-
+ class(P),
+ findall(P, defines(P, _,method,_), L),
+ length(L, N),
+ N is 1.
+
 child(Set) :-
 findall([F,G], extends(F, G);implements(F,G), Lst),
 list_to_set(Lst, Set).
