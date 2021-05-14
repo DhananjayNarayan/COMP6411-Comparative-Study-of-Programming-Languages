@@ -43,6 +43,7 @@ implements(human,behavior).
 implements(machine,behavior).
 implements(android2,behavior2).
 
+% Rule 1
 empty_class(Type) :-
     class(Type),
     findall(Type,defines(Type,_,attribute,_),L1),
@@ -52,14 +53,14 @@ empty_class(Type) :-
     N1 == 0,
     N2 == 0.
 
-
+% Rule 2
 lazy_class(Type) :-
  class(Type),
  findall(Type, defines(Type,_,method,_), L),
  length(L, N),
  N == 1.
 
-
+% Rule 3
 data_type(Type):-
     class(Type),
     findall(Type,defines(Type,_,attribute,_),L1),
@@ -69,11 +70,14 @@ data_type(Type):-
     N1 >= 1,
     N2 == 0.
 
+% Rule 4
 child(Set) :-
 findall([F,G], extends(F, G);implements(F,G), Lst),
 list_to_set(Lst, Set).
 
+% Rule 5
 child(X,Y) :- extends(X,Y);implements(X,Y).
 
+% Rule 6
 ancestor(X, Y) :- child(Y, X).
 ancestor(X,Y) :- child(Z,X),ancestor(Z,Y).
