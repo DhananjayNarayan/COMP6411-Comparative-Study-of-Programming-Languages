@@ -47,7 +47,7 @@ lazy_class(P) :-
  class(P),
  findall(P, defines(P, _,method,_), L),
  length(L, N),
- N is 1.
+ N == 1.
 
 child(Set) :-
 findall([F,G], extends(F, G);implements(F,G), Lst),
