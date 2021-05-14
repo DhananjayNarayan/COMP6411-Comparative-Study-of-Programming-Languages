@@ -49,6 +49,5 @@ list_to_set(Lst, Set).
 
 child(X,Y) :- extends(X,Y);implements(X,Y).
 
-
 ancestor(X, Y) :- child(Y, X).
 ancestor(X,Y) :- child(Z,X),ancestor(Z,Y).
