@@ -81,3 +81,8 @@ child(X,Y) :- extends(X,Y);implements(X,Y).
 % Rule 6
 ancestor(X, Y) :- child(Y, X).
 ancestor(X,Y) :- child(Z,X),ancestor(Z,Y).
+
+% Rule 9
+siblings(ListOfSiblings):-
+findall([X,Y],(child(X,Z), child(Y,Z),not(X=Y)), Lst),
+list_to_set(Lst,ListOfSiblings).
