@@ -35,6 +35,9 @@ defines(android2,whatihave,method,public).
 defines(android2,hasempathy,method,public).
 defines(android2,hasmemories,method,public).
 
+defines(behavior2,empathy,attribute,public).
+defines(behavior2,memories,attribute,public).
+
 extends(bladerunner,human).
 extends(android,machine).
 extends(android2,android).
@@ -82,7 +85,23 @@ child(X,Y) :- extends(X,Y);implements(X,Y).
 ancestor(X, Y) :- child(Y, X).
 ancestor(X,Y) :- child(Z,X),ancestor(Z,Y).
 
+% Rule 7
+state_of(Type,State):-
+findall(X,
+        (defines(Type,X,attribute,_);
+           (extends(Type,Y),defines(Y,X,attribute,_));
+           (implements(Type,Z),defines(Z,X,attribute,_))),
+        State).
+
 % Rule 9
 siblings(ListOfSiblings):-
 findall([X,Y],(child(X,Z), child(Y,Z),not(X=Y)), Lst),
 list_to_set(Lst,ListOfSiblings).
+
+
+
+
+
+
+
+
