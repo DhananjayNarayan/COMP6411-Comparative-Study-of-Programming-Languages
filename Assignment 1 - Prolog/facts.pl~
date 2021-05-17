@@ -101,7 +101,7 @@ findall(X,
 % Rule 8
 interface_of(Type,Interface):-
     findall(X,(defines(Type,X,method,_);
-               (   extends(Type,Y), interface_of(Y,Interface))),L1),
+               (   extends(Type,Y), defines(Y,X,method,_))),L1),
     findall(X,(implements(Type,Y),defines(Y,X,method,_)),L2),
     subset(L2,L1),
     con(L1,L2,L3),
@@ -129,8 +129,14 @@ instantiated_polymorphically(Type):-
 is_type(Type):-
     class(Type);
     interface(Type).
+root(Type):-
+    is_type(Type),
+    not(extends(Type,_);implements(Type,_)).
 
-
+% Rule 12
+provides_interface(Type,L):-
+    findall(X,implements(X,Type),L).
+%    findall(X,)
 
 
 

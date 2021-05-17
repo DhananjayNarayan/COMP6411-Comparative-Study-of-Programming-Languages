@@ -10,8 +10,8 @@ construction(android,int).
 construction(android2,int).
 construction(android2,default).
 
-interface(behavior).
-interface(behavior2).
+interface('Behavior').
+interface('Behavior2').
 
 defines(human,type,attribute,public).
 defines(human,empathy,attribute,public).
@@ -101,7 +101,7 @@ findall(X,
 % Rule 8
 interface_of(Type,Interface):-
     findall(X,(defines(Type,X,method,_);
-               (   extends(Type,Y), interface_of(Y,Interface))),L1),
+               (   extends(Type,Y), defines(Y,X,method,_))),L1),
     findall(X,(implements(Type,Y),defines(Y,X,method,_)),L2),
     subset(L2,L1),
     con(L1,L2,L3),
@@ -133,7 +133,10 @@ root(Type):-
     is_type(Type),
     not(extends(Type,_);implements(Type,_)).
 
-
+% Rule 12
+provides_interface(Type,L):-
+    findall(X,implements(X,Type),L).
+%    findall(X,)
 
 
 
