@@ -121,9 +121,6 @@ siblings(ListOfSiblings):-
 findall([X,Y],(child(X,Z), child(Y,Z),not(X=Y)), Lst),
 list_to_set(Lst,ListOfSiblings).
 
-% Rule 10
-instantiated_polymorphically(Type):-
-    extends(Type,_).
 
 
 
