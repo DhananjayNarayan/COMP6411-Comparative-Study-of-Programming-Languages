@@ -125,6 +125,13 @@ list_to_set(Lst,ListOfSiblings).
 instantiated_polymorphically(Type):-
     extends(Type,_).
 
+% Rule 11
+is_type(Type):-
+    class(Type);
+    interface(Type).
+root(Type):-
+    is_type(Type),
+    not(extends(Type,_);implements(Type,_)).
 
 
 
