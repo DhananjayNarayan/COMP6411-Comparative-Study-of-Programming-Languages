@@ -1,55 +1,56 @@
-class(human).
-class(bladerunner).
-class(android).
-class(machine).
-class(android2).
+class('Human').
+class('Bladerunner').
+class('Android').
+class('Machine').
+class('Android2').
 
-construction(bladerunner,string).
-construction(bladerunner,default).
-construction(android,int).
-construction(android2,int).
-construction(android2,default).
+construction('Bladerunner',string).
+construction('Bladerunner',default).
+construction('Android',int).
+construction('Android2',int).
+construction('Android2',default).
+
 
 interface('Behavior').
 interface('Behavior2').
 
-defines(human,type,attribute,public).
-defines(human,empathy,attribute,public).
-defines(human,act,method,public).
-defines(human,reason,method,public).
-defines(human,hasEmpathy,method,public).
+defines('Human',type,attribute,public).
+defines('Human',empathy,attribute,public).
+defines('Human','act()',method,public).
+defines('Human','reason()',method,public).
+defines('Human','hasEmpathy()',method,public).
 
-defines(bladerunner,type,attribute,public).
-defines(bladerunner,rank,attribute,public).
-defines(bladerunner,reason,method,public).
+defines('Bladerunner',type,attribute,public).
+defines('Bladerunner',rank,attribute,public).
+defines('Bladerunner','reason()',method,public).
 
-defines(machine,type,attribute,public).
+defines('Machine',type,attribute,public).
 
-defines(android,version,attribute,public).
-defines(android,whatIhave,method,public).
-defines(android,whatIneed,method,public).
-defines(android,act,method,public).
-defines(android,reason,method,public).
+defines('Android',version,attribute,public).
+defines('Android','whatIhave()',method,public).
+defines('Android','whatIneed()',method,public).
+defines('Android','act()',method,public).
+defines('Android','reason()',method,public).
 
-defines(android2,whatIhave,method,public).
-defines(android2,hasEmpathy,method,public).
-defines(android2,hasMemories,method,public).
+defines('Android2','whatIhave()',method,public).
+defines('Android2','hasEmpathy()',method,public).
+defines('Android2','hasMemories()',method,public).
 
-defines(behavior2,empathy,attribute,public).
-defines(behavior2,memories,attribute,public).
-defines(behavior2,hasEmpathy,method,public).
-defines(behavior2,hasMemories,method,public).
+defines('Behavior2',empathy,attribute,public).
+defines('Behavior2',memories,attribute,public).
+defines('Behavior2','hasEmpathy()',method,public).
+defines('Behavior2','hasMemories()',method,public).
 
-defines(behavior,act,method,public).
-defines(behavior,reason,method,public).
+defines('Behavior','act()',method,public).
+defines('Behavior','reason()',method,public).
 
-extends(bladerunner,human).
-extends(android,machine).
-extends(android2,android).
+extends('Bladerunner','Human').
+extends('Android','Machine').
+extends('Android2','Android').
 
-implements(human,behavior).
-implements(machine,behavior).
-implements(android2,behavior2).
+implements('Human','Behavior').
+implements('Machine','Behavior').
+implements('Android2','Behavior2').
 
 % Rule 1
 empty_class(Type) :-
