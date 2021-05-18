@@ -1,31 +1,10 @@
-## QUERIES: 
+This file contains the interaction with the system while executing the queries of "SECTION 4.2" .
 
 4.2.1
-What classes, if any, are present in the program? - NON-GROUND
+What classes, if any, are present in the program?  
 Query - class(X).
-
-4.2.2
-What methods, if any, does class ’Human’ define? - NON-GROUND
-Query - defines(human,X,method,_).
-
-4.2.3 - 
-Does class ’Android’ define an attribute named ’version’? - GROUND
-Query - defines(android,version,attribute,_).
-
-4.2.4
-Does class ’Machine’ define a method named ’hasMemories()’? - GROUND
-Query - defines(machine,hasmemories,method,_).
-
-4.2.5
-Which class, if any, extends class ’Human’? - NON-GROUND
-Query - extends(X,human).
-
-4.2.6
-Which type, if any, implements interface ’Behavior2’? - NON-GROUND
-Query - implements(X,behavior2).
-
-INTERACTION WITH SYSTEM:
-
+Type - NON-GROUND
+Interaction - 
 ?- class(X).
 X = human ;
 X = bladerunner ;
@@ -33,21 +12,55 @@ X = android ;
 X = machine ;
 X = android2.
 
+4.2.2
+What methods, if any, does class ’Human’ define?  
+Query - defines(human,X,method,_).
+Type - NON-GROUND
+Interaction - 
 ?- defines(human,X,method,_).
 X = act ;
 X = reason ;
 X = hasempathy.
 
+4.2.3 - 
+Does class ’Android’ define an attribute named ’version’?  
+Query - defines(android,version,attribute,_).
+Type - GROUND
+Interaction - 
 ?- defines(android,version,attribute,_).
 true.
 
+4.2.4
+Does class ’Machine’ define a method named ’hasMemories()’?  
+Query - defines(machine,hasmemories,method,_).
+Type - GROUND
+Interaction - 
 ?- defines(machine,hasmemories,method,_).
 false.
 
+4.2.5
+Which class, if any, extends class ’Human’? 
+Query - extends(X,human).
+Type - NON-GROUND
+Interaction - 
 ?- extends(X,human).
 X = bladerunner.
 
+4.2.6
+Which type, if any, implements interface ’Behavior2’?  
+Query - implements(X,behavior2).
+Type - NON-GROUND
+Interaction - 
 ?- implements(X,behavior2).
 X = android2.
+
+
+
+
+
+
+
+
+
 
 
