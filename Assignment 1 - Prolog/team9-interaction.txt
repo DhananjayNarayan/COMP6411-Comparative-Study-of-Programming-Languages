@@ -12,7 +12,6 @@ X = 'Android' ;
 X = 'Machine' ;
 X = 'Android2'.
 
-
 4.2.2
 What methods, if any, does class ’Human’ define?  
 Query - defines('Human',X,method,_).
@@ -39,7 +38,6 @@ Interaction -
 ?- defines('Machine','hasMemories()',method,_).
 false.
 
-
 4.2.5
 Which class, if any, extends class ’Human’? 
 Query - extends(X,'Human').
@@ -55,14 +53,5 @@ Type - NON-GROUND
 Interaction - 
 ?- implements(X,'Behavior2').
 X = 'Android2'.
-
-
-
-
-
-
-
-
-
 
 
