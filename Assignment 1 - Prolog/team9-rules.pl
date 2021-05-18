@@ -77,6 +77,5 @@ root(Type):-
 
 % Rule 12
 provides_interface(Type,L):-
-    interface(Type),
-   findall(X,(ancestor(Type,X),class(X)),L).
+      findall(X,(interface(Type),ancestor(Type,X),class(X)),L).
 
