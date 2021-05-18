@@ -1,5 +1,4 @@
-Names and ID’s of all contributing members in the team. 
-
+Assignment 1 on Prolog: Names and ID’s of all contributing members in the team. 
 
 1. Name: Tanzia Ahmed
    ID: 40166924
