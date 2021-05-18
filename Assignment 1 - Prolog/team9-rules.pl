@@ -36,7 +36,7 @@ list_to_set(Lst, Set).
 child(X,Y) :- extends(X,Y);implements(X,Y).
 
 % Rule 6
-ancestor(X, Y) :- child(Y, X).
+ancestor(X,Y) :- child(Y, X).
 ancestor(X,Y) :- child(Z,X),ancestor(Z,Y).
 
 % Rule 7
@@ -76,7 +76,7 @@ root(Type):-
        not(child(Type,_)).
 
 % Rule 12
-provides_interface(Type,L):-
-      findall(X,(interface(Type),class(X),ancestor(Type,X)),L).
+provides_interface(Type,L):- 
+findall(X,(interface(Type),class(X),ancestor(Type,X)),L).
 
 
