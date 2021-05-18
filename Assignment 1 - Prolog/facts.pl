@@ -94,15 +94,14 @@ ancestor(X,Y) :- child(Z,X),ancestor(Z,Y).
 % Rule 7
 state_of(Type,State):-
 findall(X,
-        (defines(Type,X,attribute,_);
-           (extends(Type,Y),defines(Y,X,attribute,_));
-           (implements(Type,Z),defines(Z,X,attribute,_))),
+       (defines(Type,X,attribute,_);
+           (ancestor(Y,Type),defines(Y,X,attribute,_))),
         State).
 
 % Rule 8
 interface_of(Type,Interface):-
     findall(X,(defines(Type,X,method,_);
-               (   extends(Type,Y), defines(Y,X,method,_))),L1),
+               (  ancestor(Y,Type), defines(Y,X,method,_))),L1),
     findall(X,(implements(Type,Y),defines(Y,X,method,_)),L2),
     subset(L2,L1),
     con(L1,L2,L3),
@@ -110,12 +109,6 @@ interface_of(Type,Interface):-
 % concat fn
  con([],L1,L1).
  con([X|Tail],L2,[X|Tail1]):- con(Tail,L2,Tail1).
-% list-equalTo fn
-%same([], []).
-%same([H1|R1], [H2|R2]):-
-   % H1 = H2,
-   % same(R1, R2).
-
 
 % Rule 9
 siblings(ListOfSiblings):-
@@ -131,8 +124,8 @@ is_type(Type):-
     class(Type);
     interface(Type).
 root(Type):-
-    is_type(Type),
-    not(extends(Type,_);implements(Type,_)).
+       is_type(Type),
+       not(child(Type,_)).
 
 % Rule 12
 provides_interface(Type,L):-
