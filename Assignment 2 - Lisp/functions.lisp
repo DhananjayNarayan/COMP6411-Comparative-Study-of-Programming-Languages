@@ -1,5 +1,3 @@
-#1
-
 (defun consR (L e)
 
 (setq lst (cons e ()))
@@ -11,5 +9,9 @@
 lst
 )
 
-;; Usage Example (print(consR(consR '(1 2) 3) 4))
-;; Recursive Usage in Mathmatical Notation consR(consR({A,B},C),D) = {A,B,C,D} 
+(defun filter (lst p)
+(setq ln (list-length lst))
+(if(and (and(>      p  0)(integerp      p )) (and(> ln 0) (every 'integerp lst)))
+(remove-if (lambda (item) (< item p)) lst)
+nil)
+)
