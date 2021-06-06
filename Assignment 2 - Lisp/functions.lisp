@@ -16,6 +16,12 @@ lst
 (return-from filter nil))
 (setq ln (list-length lst))
 (if(and(> p  0) (and(> ln 0) (every 'integerp lst)))
-(remove-if (lambda (item) (< item p)) lst)
+(remove-all-small lst p)
 )
 )
+(defun remove-all-small (lst elt)
+(if (null lst)
+nil
+(if (< (car lst) elt)
+(remove-all-small (cdr lst) elt)
+(cons (car lst) (remove-all-small (cdr lst) elt)))))
