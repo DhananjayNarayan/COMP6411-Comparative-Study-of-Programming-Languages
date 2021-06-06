@@ -11,7 +11,7 @@ lst
 
 (defun filter (lst p)
 (setq ln (list-length lst))
-(if(and (and(>      p  0)(integerp      p )) (and(> ln 0) (every 'integerp lst)))
+(if(and (and(> p  0)(integerp p )) (and(> ln 0) (every 'integerp lst)))
 (remove-if (lambda (item) (< item p)) lst)
 nil)
 )
