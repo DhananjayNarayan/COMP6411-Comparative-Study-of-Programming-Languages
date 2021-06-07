@@ -16,6 +16,14 @@ lst
 (defun combine (&rest args)
 (apply (fn (car args)) args))
 
+;Function 4
+(defun dist(n lst)
+(if (null lst)
+nil
+(cons (list n (car lst)) (dist n (cdr lst)))
+))
+
+
 ;Function 7
 (defun filter (lst p)
 (if(not(listp lst))
