@@ -1,14 +1,22 @@
+;Function 1
 (defun consR (L e)
-
 (setq lst (cons e ()))
-
 (setq L (reverse L))
-
 (dolist (x L) (setq lst (cons x lst)))
-
 lst
 )
 
+;Function 2
+(defun fn(arg)
+(cond(
+(numberp arg) #'+)
+((listp arg) #'append)
+))
+
+(defun combine (&rest args)
+(apply (fn (car args)) args))
+
+;Function 7
 (defun filter (lst p)
 (if(not(listp lst))
 (return-from filter nil))
