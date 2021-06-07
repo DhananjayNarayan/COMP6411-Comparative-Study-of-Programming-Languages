@@ -8,13 +8,18 @@ lst
 
 ;Function 2
 (defun fn(arg)
-(cond(
-(numberp arg) #'+)
-((listp arg) #'append)
-))
+(cond((numberp arg) #'+)
+((listp arg) #'append)))
+(defun combine(&rest args)
+(apply(fn(car args)) args))
 
-(defun combine (&rest args)
-(apply (fn (car args)) args))
+;Function 3
+(defun combine-max(list1 list2)
+ (cond((null list1)list2)
+ ((null list2)list1)
+ (( > (car list1)(car list2))(cons(car list1)(combine-max(cdr list1)(cdr list2))))
+ (t (cons (car list2)(combine-max(cdr list1)(cdr list2))))
+ ))
 
 ;Function 4
 (defun dist(n lst)
@@ -22,7 +27,6 @@ lst
 nil
 (cons (list n (car lst)) (dist n (cdr lst)))
 ))
-
 
 ;Function 7
 (defun filter (lst p)
