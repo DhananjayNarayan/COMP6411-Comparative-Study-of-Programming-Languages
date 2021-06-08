@@ -30,16 +30,16 @@ nil
 
 
 ;Function 5
-(defun my-remove (element list)
-  (cond
-    ((null list) list)
-    ((eql element (car list)) (my-remove element (cdr list)))
-    ((list* (car list) (my-remove element (cdr list))))))
 (defun rem-if-dupl (list1)
 (cond ((null list1) nil)
 ((member (car list1) (cdr list1)) (rem-if-dupl (my-remove (car list1) (cdr list1))))
 (T (cons (car list1) (rem-if-dupl (cdr list1))))
 ))
+(defun my-remove (element list)
+(cond
+((null list) list)
+((eql element (car list)) (my-remove element (cdr list)))
+((list* (car list) (my-remove element (cdr list))))))
 
 
 ;Function 7
