@@ -41,17 +41,3 @@ nil
 (if (< (car lst) elt)
 (remove-all-small (cdr lst) elt)
 (cons (car lst) (remove-all-small (cdr lst) elt)))))
-
-;Function 8
-(defun is-bst (lst)
-(setq result "yes")
-result
-(if (= (list-length lst) 0)
-result)
-(if (> (list-length lst) 0)
-(setq node (car lst)))
-(cond ((and (or (> node (car(car(cdr lst)))) (= node (car(cdr lst)))) (< node(car(car(cdr(cdr lst)))))) 
-(is-bst (cdr(cdr(cdr lst)))))
-(t (setq result "no")) )
-result
-)
