@@ -1,0 +1,14 @@
+Function 1
+
+f (0) = <0>
+ f (n) = consR(f (n − 1),n), for n > 0.
+
+ f(4)=consR(consR(3),4)
+     =consR(consR(consR(2),3),4)
+     =consR(consR(consR(consR(1),2),3),4)
+     =consR(consR(consR(consR(consR(0),1),2),3),4)
+     =consR(consR(consR(consR((0),1),2),3),4)
+     =consR(consR(consR((0,1),2),3),4)
+     =consR(consR((0,1,2),3),4)
+     =consR((0,1,2,3),4)
+     =(0,1,2,3,4)
