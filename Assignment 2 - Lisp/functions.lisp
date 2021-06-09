@@ -1,10 +1,15 @@
 ;Function 1
 (defun consR (L e)
-(setq lst (cons e ()))
-(setq L (reverse L))
-(dolist (x L) (setq lst (cons x lst)))
-lst
+(let ((ret 0)) 
+(if (> (length L) 1)
+(progn
+(setq ret (consR (cdr L) e))
+(cons (car L) ret)
 )
+(cons (car L) (cons e ()))
+)
+))
+
 
 ;Function 2
 (defun fn(arg)
