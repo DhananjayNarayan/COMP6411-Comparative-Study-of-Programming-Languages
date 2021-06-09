@@ -59,3 +59,49 @@ nil
 (if (< (car lst) elt)
 (remove-all-small (cdr lst) elt)
 (cons (car lst) (remove-all-small (cdr lst) elt)))))
+
+
+
+;Function 9
+(defun height (tree)
+(let ((lright 0)) 
+(let ((lleft 0)) 
+(let ((depthr 0)) 
+(let ((depthl 0)) 
+(setq lright (length (car(cdr (cdr tree)))))
+(setq lleft (length (car (cdr tree))))
+(if (= 0 lright lleft) 
+(+ 0 0) 
+(progn
+    (setq depthr (height (car(cdr (cdr tree)))))
+    (setq depthl (height (car (cdr tree))))
+    (if (> depthl depthr)
+    (+ depthl 1)
+    (+ depthr 1))
+)))))))
+
+
+;Function 10
+(defun PostorderTraversal (tree)
+(let ((lright 0)) 
+(let ((lleft 0)) 
+(let ((root 0)) 
+(let ((returnValue ())) 
+(let ((leftValue 0)) 
+(let ((rightValue 0)) 
+
+(setq lright (car(cdr (cdr tree))))
+(setq lleft (car (cdr tree)))
+(setq root (car tree))
+
+(if root 
+(progn 
+    (setq leftValue (PostorderTraversal lleft))
+    (if leftValue (setq returnValue(append leftValue returnValue)))
+    (setq rightValue (PostorderTraversal lright))
+    (if rightValue (setq returnValue(append rightValue returnValue)))
+    (setq returnValue(cons root returnValue))
+    returnValue
+)
+nil
+))))))))
