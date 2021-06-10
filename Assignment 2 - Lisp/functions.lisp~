@@ -66,31 +66,33 @@ nil
 (cons (car lst) (remove-all-small (cdr lst) elt)))))
 
 ;Function 8
-(defun is-bst (lst)
+(defun is-bst(lst)
+
 (setq result "yes")
+
+(if (not(null lst))
+(setq pnode (car lst))
+(return-from is-bst result))
+(print pnode)
+
+(if (>(list-length lst) 1)
+(progn
+(setq lchild (car(car(cdr lst))))
+(print lchild)))
+
+(if (>(list-length lst) 2)
+(progn
+(setq rchild (car(car(cdr(cdr lst)))))
+(print rchild)))
+
+(if (and (and (not(null lchild)) (or (< lchild pnode) (= lchild pnode)))(>(list-length lst) 1)) 
+    (is-bst (car(cdr lst)))
+    (return-from is-bst "left no") )
+(if (and (and (not(null rchild)) (> lchild pnode)) (>(list-length lst) 2))
+    (is-bst (car(cdr(cdr lst))))
+    (return-from is-bst "from right no") )
 result
-(cond ((equal lst nil) (return-from is-bst result))
-((> (list-length lst) 0) (setq node (car lst))))
-(if (and(and(not(equal(cdr lst) nil)) (check-validleftchild node (car(cdr lst)))) (check-validrightchild node (car(cdr(cdr lst))))) 
-(is-bst(setq lst (cdr(cdr(cdr lst)))))
-(return-from is-bst (= result "no")) 
 )
-result
-)
-
-(defun check-validleftchild (node lchild)
-(if (equal lchild nil) (return-from check-validleftchild true))
-(if (or (< lchild node) (= lchild node))
-(return-from check-validleftchild true)
-(return-from check-validleftchild nil)))
-
-(defun check-validrightchild (node rchild)
-(if (equal rchild nil) (return-from check-validrightchild true))
-(if (> rchild node)
-(return-from check-validrightchild true)
-(return-from check-validrightchild nil)))
-
- 
 
 
 ;Function 9

@@ -66,33 +66,35 @@ nil
 (cons (car lst) (remove-all-small (cdr lst) elt)))))
 
 ;Function 8
-(defun is-bst(lst)
+(defun is-bst (tree)
+(let ((result "yes")) 
+(let ((lright 0)) 
+(let ((lleft 0)) 
+(let ((root 0)) 
 
-(setq result "yes")
 
-(if (not(null lst))
-(setq pnode (car lst))
-(return-from is-bst result))
-(print pnode)
+(setq lright (car(cdr (cdr tree))))
+(setq lleft (car (cdr tree)))
+(setq root (car tree))
 
-(if (>(list-length lst) 1)
-(progn
-(setq lchild (car(car(cdr lst))))
-(print lchild)))
-
-(if (>(list-length lst) 2)
-(progn
-(setq rchild (car(car(cdr(cdr lst)))))
-(print rchild)))
-
-(if (and (and (not(null lchild)) (or (< lchild pnode) (= lchild pnode)))(>(list-length lst) 1)) 
-    (is-bst (car(cdr lst)))
-    (return-from is-bst "left no") )
-(if (and (and (not(null rchild)) (> lchild pnode)) (>(list-length lst) 2))
-    (is-bst (car(cdr(cdr lst))))
-    (return-from is-bst "from right no") )
-result
+(if lleft
+(progn 
+(if (<= (car lleft) root)
+(setq result (is-bst lleft))
+(setq result "no")
 )
+))
+
+(if lright
+(progn 
+(if (< root (car lright) )
+(setq result (is-bst lright))
+(setq result "no")
+)
+))
+
+result
+)))))
 
 
 ;Function 9
