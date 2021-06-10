@@ -66,16 +66,31 @@ nil
 (cons (car lst) (remove-all-small (cdr lst) elt)))))
 
 ;Function 8
-(defun is-bst (lst)
+(defun is-bst(lst)
+
 (setq result "yes")
-result
-(if (= (list-length lst) 0)
-result)
-(if (> (list-length lst) 0)
-(setq node (car lst)))
-(cond ((and (or (> node (car(car(cdr lst)))) (= node (car(cdr lst)))) (< node(car(car(cdr(cdr lst)))))) 
-(is-bst (cdr(cdr(cdr lst)))))
-(t (setq result "no")) )
+
+(if (not(null lst))
+(setq pnode (car lst))
+(return-from is-bst result))
+(print pnode)
+
+(if (>(list-length lst) 1)
+(progn
+(setq lchild (car(car(cdr lst))))
+(print lchild)))
+
+(if (>(list-length lst) 2)
+(progn
+(setq rchild (car(car(cdr(cdr lst)))))
+(print rchild)))
+
+(if (and (and (not(null lchild)) (or (< lchild pnode) (= lchild pnode)))(>(list-length lst) 1)) 
+    (is-bst (car(cdr lst)))
+    (return-from is-bst "left no") )
+(if (and (and (not(null rchild)) (> lchild pnode)) (>(list-length lst) 2))
+    (is-bst (car(cdr(cdr lst))))
+    (return-from is-bst "from right no") )
 result
 )
 
