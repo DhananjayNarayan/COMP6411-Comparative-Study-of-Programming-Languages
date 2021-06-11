@@ -1,9 +1,9 @@
 Problem 1:
 
 f (0) = <0>
- f (n) = consR(f (n − 1),n), for n > 0.
+f (n) = consR(f (n − 1),n), for n > 0.
 
- f(4)=consR(consR(3),4)
+f(4) =consR(consR(3),4)
      =consR(consR(consR(2),3),4)
      =consR(consR(consR(consR(1),2),3),4)
      =consR(consR(consR(consR(consR(0),1),2),3),4)
@@ -37,22 +37,27 @@ dist(w,<x,y>) = cons (list (w,head(<x,y>)) (dist w (tail(<x,y>)))
 (d):
 
 Tracing function 4 for (dist 'a '(b c d)):
-n | lst     | if (null lst)       | result->(cons (list n (car lst))
-a | (b c d) | nil-> dist(a (c d)) | ((a b))
-a | (c d)   | nil-> dist(a (d))   | ((a b) (a c))
-a | (d)     | nil-> dist(a null)  | ((a b) (a c) (a d))
-a | null    | nil                 | return result = ((a b) (a c) (a d))
+
+        n | lst     | if (null lst)       | result->(cons (list n (car lst))
+---------------------------------------------------------------------------------
+step 1: a | (b c d) | nil-> dist(a (c d)) | ((a b))
+step 2: a | (c d)   | nil-> dist(a (d))   | ((a b) (a c))
+step 3: a | (d)     | nil-> dist(a null)  | ((a b) (a c) (a d))
+step 4: a | null    | nil                 | return result = ((a b) (a c) (a d))
 
 Problem 7:
 
 Tracing function 7 for (filter '(12 9 3 2 7) '4):
-lst          | p  | if (lst != listp) | if (p != integerp) | ln | if (p>0 && (ln >0 && (every 'integerp lst))) | lst          | elt | if (lst == null) | if ((car lst)< elt)                --->| result-> (cons (car lst))
-(12 9 3 2 7) | 4  | nil               | nil                | 5  | true -> remove-all-small ((12 9 3 2 7) 4)    | (12 9 3 2 7) | 4   | nil-> if(12<4)-->| false-> remove-all-small ((9 3 2 7) 4) | (12)
-                                                                                                               | (9 3 2 7)    | 4   | nil-> if(9<4)--> | false-> remove-all-small ((3 2 7) 4)   | (12 9)
-                                                                                                               | (3 2 7)      | 4   | nil-> if(3<4)--> | true-> remove-all-small ((2 7) 4)      |
-                                                                                                               | (2 7)        | 4   | nil-> if(2<4)--> | true-> remove-all-small ((7) 4)        |
-                                                                                                               | (7)          | 4   | nil-> if(7<4)--> | false-> remove-all-small (null 4)      | (12 9 7)
-                                                                                                               | null         | 4   | nil              |                                        | return result = (12 9 7)
+
+             lst     | p  | if (lst != listp) | if (p != integerp) | ln | if (p>0 && (ln >0 && (every 'integerp lst))) | lst          | elt | if (lst == null) | if ((car lst)< elt)                --->| result-> (cons (car lst))
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+step 1: (12 9 3 2 7) | 4  | nil               | nil                | 5  | true -> remove-all-small ((12 9 3 2 7) 4)    | (12 9 3 2 7) | 4   | nil-> if(12<4)-->| false-> remove-all-small ((9 3 2 7) 4) | (12)
+step 2:                                                                                                                | (9 3 2 7)    | 4   | nil-> if(9<4)--> | false-> remove-all-small ((3 2 7) 4)   | (12 9)
+step 3:                                                                                                                | (3 2 7)      | 4   | nil-> if(3<4)--> | true-> remove-all-small ((2 7) 4)      |
+step 4:                                                                                                                | (2 7)        | 4   | nil-> if(2<4)--> | true-> remove-all-small ((7) 4)        |
+step 5:                                                                                                                | (7)          | 4   | nil-> if(7<4)--> | false-> remove-all-small (null 4)      | (12 9 7)
+step 6:                                                                                                                | null         | 4   | nil              |   -                                    | return result = (12 9 7)
+
 Problem 9:
 
 height()=0
