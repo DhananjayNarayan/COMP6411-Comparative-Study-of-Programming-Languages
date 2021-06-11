@@ -13,7 +13,17 @@ f (0) = <0>
      =consR((0,1,2,3),4)
      =(0,1,2,3,4)
 
-Problem 4 (d):
+Problem 4 -
+
+(b) :
+dist(w,<x,y>) = cons (list (w,head(<x,y>)) (dist w (tail(<x,y>)))
+                     = cons (list (w,<x>) (cons(list(w,head<y>)) (dist(w,tail(<>))))
+                     = cons(<w,x> cons(<w,y>) nil))
+                     =  cons (<w,x> <w,y>)
+                     = (<w,x>,<w,y>)
+
+
+(d):
 
 Tracing function 4 for (dist 'a '(b c d)):
 n | lst     | if (null lst)       | result->(cons (list n (car lst))
