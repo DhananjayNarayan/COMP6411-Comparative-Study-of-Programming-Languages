@@ -46,6 +46,22 @@ nil
 ((eql element (car list)) (my-remove element (cdr list)))
 ((list* (car list) (my-remove element (cdr list))))))
 
+;Function 6
+(defun oseq (num &optional current)
+(let ((lst ())) 
+(if (<= num 1) nil)
+(if (> num 1)
+(progn
+(if current
+(progn
+(if (< current num)
+(progn
+(setq lst (oseq num (+ current 2)))
+(cons current lst))
+lst))
+(progn
+(setq lst (oseq num 1))))))))
+
 
 ;Function 7
 (defun filter (lst p)
