@@ -13,10 +13,19 @@ f (0) = <0>
      =consR((0,1,2,3),4)
      =(0,1,2,3,4)
 
+Problem 4 (d):
+
+Tracing function 4 for (dist 'a '(b c d)):
+n | lst     | if (null lst)       | result->(cons (list n (car lst))
+a | (b c d) | nil-> dist(a (c d)) | ((a b))
+a | (c d)   | nil-> dist(a (d))   | ((a b) (a c))
+a | (d)     | nil-> dist(a null)  | ((a b) (a c) (a d))
+a | null    | nil                 | return result = ((a b) (a c) (a d))
+
 Problem 7:
 
 Tracing function 7 for (filter '(12 9 3 2 7) '4):
-lst          | p  | if (lst != listp) | if (p != integerp) | ln | if (p>0 && (ln >0 && (every 'integerp lst))) | lst          | elt | if (lst == null) | if ((car lst)< elt)                    | result
+lst          | p  | if (lst != listp) | if (p != integerp) | ln | if (p>0 && (ln >0 && (every 'integerp lst))) | lst          | elt | if (lst == null) | if ((car lst)< elt)                --->| result-> (cons (car lst))
 (12 9 3 2 7) | 4  | nil               | nil                | 5  | true -> remove-all-small ((12 9 3 2 7) 4)    | (12 9 3 2 7) | 4   | nil-> if(12<4)-->| false-> remove-all-small ((9 3 2 7) 4) | (12)
                                                                                                                | (9 3 2 7)    | 4   | nil-> if(9<4)--> | false-> remove-all-small ((3 2 7) 4)   | (12 9)
                                                                                                                | (3 2 7)      | 4   | nil-> if(3<4)--> | true-> remove-all-small ((2 7) 4)      |
