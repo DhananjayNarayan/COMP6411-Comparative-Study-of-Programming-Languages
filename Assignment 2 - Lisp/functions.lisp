@@ -4,11 +4,10 @@
 (if (> (length L) 1)
 (progn
 (setq ret (consR (cdr L) e))
-(cons (car L) ret)
-)
-(cons (car L) (cons e ()))
-)
-))
+(cons (car L) ret))
+(if (= (length L) 0)
+(cons e ())
+(cons (car L) (cons e ()))))))
 
 
 ;Function 2
@@ -148,10 +147,10 @@ result
 (if root 
 (progn 
     (setq leftValue (PostorderTraversal lleft))
-    (if leftValue (setq returnValue(append leftValue returnValue)))
+    (if leftValue (setq returnValue(append returnValue leftValue)))
     (setq rightValue (PostorderTraversal lright))
-    (if rightValue (setq returnValue(append rightValue returnValue)))
-    (setq returnValue(cons root returnValue))
+    (if rightValue (setq returnValue(append returnValue rightValue)))
+    (setq returnValue(consR returnValue root))
     returnValue
 )
 nil
