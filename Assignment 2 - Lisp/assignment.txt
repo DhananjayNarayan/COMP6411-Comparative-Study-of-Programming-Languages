@@ -15,6 +15,17 @@ f (0) = <0>
 
 Problem 4 -
 
+(a) :
+
+f(x,0) = ()
+f(x,n)= (dist(x,(n)),f(x,(n-1))) where n > 1 
+
+f(w,(x,y)) =(dist(w,(x)),f(w,(y)))
+           =(dist(w,(x)),dist(w,(y)),f(w,()))
+           =(dist(w,(x)),dist(w,(y)),())
+           =((w,x),dist(w,(y)))
+           =((w,x),(w,y))
+
 (b) :
 dist(w,<x,y>) = cons (list (w,head(<x,y>)) (dist w (tail(<x,y>)))
                      = cons (list (w,<x>) (cons(list(w,head<y>)) (dist(w,tail(<>))))
