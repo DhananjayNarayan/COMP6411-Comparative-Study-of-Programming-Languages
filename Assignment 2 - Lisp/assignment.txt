@@ -19,7 +19,7 @@ Problem 4 -
 dist(w,<x,y>) = cons (list (w,head(<x,y>)) (dist w (tail(<x,y>)))
                      = cons (list (w,<x>) (cons(list(w,head<y>)) (dist(w,tail(<>))))
                      = cons(<w,x> cons(<w,y>) nil))
-                     =  cons (<w,x> <w,y>)
+                     = cons (<w,x> <w,y>)
                      = (<w,x>,<w,y>)
 
 
