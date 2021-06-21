@@ -1,0 +1,57 @@
+This file contains the interaction with the system while executing the queries of "SECTION 4.2" .
+
+4.2.1
+What classes, if any, are present in the program?  
+Query - class(X).
+Type - NON-GROUND
+Interaction - 
+?- class(X).
+X = 'Human' ;
+X = 'Bladerunner' ;
+X = 'Android' ;
+X = 'Machine' ;
+X = 'Android2'.
+
+4.2.2
+What methods, if any, does class ’Human’ define?  
+Query - defines('Human',X,method,_).
+Type - NON-GROUND
+Interaction - 
+?- defines('Human',X,method,_).
+X = 'act()' ;
+X = 'reason()' ;
+X = 'hasEmpathy()'.
+
+4.2.3 - 
+Does class ’Android’ define an attribute named ’version’?  
+Query - defines('Android',version,attribute,_).
+Type - GROUND
+Interaction - 
+?- defines('Android',version,attribute,_).
+true.
+
+4.2.4
+Does class ’Machine’ define a method named ’hasMemories()’?  
+Query - defines('Machine','hasMemories()',method,_).
+Type - GROUND
+Interaction - 
+?- defines('Machine','hasMemories()',method,_).
+false.
+
+4.2.5
+Which class, if any, extends class ’Human’? 
+Query - extends(X,'Human').
+Type - NON-GROUND
+Interaction - 
+?- extends(X,'Human').
+X = 'Bladerunner'.
+
+4.2.6
+Which type, if any, implements interface ’Behavior2’?  
+Query - implements(X,'Behavior2').
+Type - NON-GROUND
+Interaction - 
+?- implements(X,'Behavior2').
+X = 'Android2'.
+
+
