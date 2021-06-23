@@ -15,7 +15,8 @@ struct _listnode* next;
 } * list;
 const element NIL = { .type=LIST, .l=NULL };
 
+//Q1
 element aasel(atom a){
-element ele ;
-  
+element ele = {.type=ATOM, .a=a } ;
+ return ele
 }
