@@ -30,3 +30,9 @@ element lasel(list l)
 element ele= {.type=LIST, .l=l }; 
 return ele;
 }
+
+//Q3
+list cons(element e, list l)
+{
+  
+}
