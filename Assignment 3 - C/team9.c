@@ -14,3 +14,8 @@ element el;
 struct _listnode* next;
 } * list;
 const element NIL = { .type=LIST, .l=NULL };
+
+element aasel(atom a){
+element ele ;
+  
+}
