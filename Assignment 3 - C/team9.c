@@ -34,5 +34,30 @@ return ele;
 //Q3
 list cons(element e, list l)
 {
-  
+list newList= (list) malloc(sizeof(struct _listnode));
+newList->el= e;
+newList->next= l;
+return newList;
+}
+
+//Q4
+list append(list l1, list l2)
+{
+}
+
+//Q5
+element car(element e)
+{
+   if (e.type != LIST) {
+        return NIL;
+    }
+    else{
+    return e.l->el;
+    }
+}
+
+//Q6
+list cdr(element e)
+{
+  return e.l->next;
 }
