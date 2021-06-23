@@ -16,7 +16,17 @@ struct _listnode* next;
 const element NIL = { .type=LIST, .l=NULL };
 
 //Q1
-element aasel(atom a){
-element ele = {.type=ATOM, .a=a } ;
- return ele
+element aasel(atom a)
+{
+element ele ;
+ele.type=ATOM;
+ele.a=a;
+return ele;
+}
+
+//Q2
+element lasel(list l)
+{
+element ele= {.type=LIST, .l=l }; 
+return ele;
 }
