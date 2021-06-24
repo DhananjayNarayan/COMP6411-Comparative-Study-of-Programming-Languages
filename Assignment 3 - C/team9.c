@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 typedef enum { ATOM, LIST } eltype;
 typedef char atom;
 struct _listnode;
@@ -48,11 +49,11 @@ list append(list l1, list l2)
 //Q5
 element car(element e)
 {
-   if (e.type != LIST) {
+   if (e.type!=LIST) {
         return NIL;
     }
     else{
-    return e.l->el;
+      return e.l->el;
     }
 }
 
@@ -60,4 +61,82 @@ element car(element e)
 list cdr(element e)
 {
   return e.l->next;
+}
+
+//Q7
+list cddr(element e){
+  return (e.l->next)->next;
+}
+
+//Q8
+void print(element e){
+    if(e.type == ATOM){
+        printf(" %c ", e.a);
+    }
+    else if(e.type == LIST){
+        if (e.l == NULL){
+            printf("NIL");
+        }
+        else{
+            printf("(");
+            print(e.l->el);
+            print(lasel(e.l->next));
+            printf(")");
+        }
+
+    }
+}
+
+void printel(element e){
+    if(e.type == ATOM){
+        printf(" %c ", e.a);
+    }
+    else if(e.type == LIST){
+        if (e.l == NULL){
+            // printf("NIL");
+        }
+        else{
+            printf("(");
+            printel(e.l->el);
+            printel(lasel(e.l->next));
+            printf(")");
+        }
+
+    }
+}
+
+
+void lfree(list lst){
+  list templist = lst, *pNext;
+
+    while (NULL != templist)
+    {
+        pNext = templist->next;
+        free(templist);
+        templist = pNext;
+    }
+  
+  
+}
+int main()
+{
+    element a = aasel('a');
+    element b = aasel('b');
+    element c = aasel('c');
+    element listEl = lasel(cons(b, cons(c, NULL)));
+    element d = aasel('d');
+    element e = aasel('e');
+    list list1 = cons(a, cons(listEl, cons(d, cons(e,NULL))));
+    printel(lasel(list1));    // list as element
+    printf("\n");
+    // lfree(list1);
+    print(car(lasel(list1)));      // car
+    printf("\n");
+    printel(lasel(cdr(lasel(list1))));    // cdr
+    // printf("\n");
+    // printel(lasel(cddr(lasel(list1))));   // cddr
+    printf("\n");
+    print(car(car(lasel(list1))));    // car(car(list))
+
+    return 0;
 }
