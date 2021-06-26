@@ -43,7 +43,14 @@ return newList;
 
 //Q4
 list append(list l1, list l2)
-{
+{=
+   list mergedlist = l1;
+   struct _listnode * i = mergedlist;
+   while(i->next != NULL){
+        i = i->next;
+    }
+    i->next = l2;
+    return mergedlist;
 }
 
 //Q5
