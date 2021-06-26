@@ -45,11 +45,11 @@ return newList;
 list append(list l1, list l2)
 {=
    list mergedlist = l1;
-   struct _listnode * i = mergedlist;
-   while(i->next != NULL){
-        i = i->next;
+   struct _listnode * ptr = mergedlist;
+   while(ptr->next != NULL){
+        ptr = ptr->next;
     }
-    i->next = l2;
+    ptr->next = l2;
     return mergedlist;
 }
 
