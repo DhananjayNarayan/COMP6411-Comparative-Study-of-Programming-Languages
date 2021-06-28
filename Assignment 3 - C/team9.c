@@ -84,21 +84,39 @@ list cddr(element e){
 }
 
 //Q8
+char f = 'y';
 void print(element e){
+    
     if(e.type == ATOM){
         printf(" %c ", e.a);
     }
     else if(e.type == LIST){
+        if(f == 'y'){
+            printf("(");
+            f = 'n';
+        }
         if (e.l == NULL){
             printf("NIL");
         }
+        
         else{
-            printf("(");
-            print(e.l->el);
-            print(lasel(e.l->next));
-            printf(")");
-        }
+            if(e.l->next != NULL){
+                if (e.l->el.type == LIST)
+                {
+                    printf("(");
 
+                }
+            
+                print(e.l->el);
+                print(lasel(e.l->next));
+            }
+            else{
+            print(e.l->el);
+            printf(")");
+
+            }
+  
+        }
     }
 }
 
@@ -120,19 +138,40 @@ int main()
     element a = aasel('a');
     element b = aasel('b');
     element c = aasel('c');
+    // list bc = cons(b, cons(c, NULL));
     element d = aasel('d');
     element e = aasel('e');
-    list pList = cons(a, cons(lasel(cons(b, cons(c, NULL))), cons(d, cons(e,NULL))));
-    print(lasel(pList));    // list as element
+    // list pList = cons(a, cons(lasel(cons(b, cons(c, NULL))), cons(d, cons(e,NULL))));
+    list de = cons(d, cons(e,NULL));
+    list bc = cons(lasel(cons(b, cons(c, NULL))),NULL);
+    list a_bc = cons(a,bc);
+    list a_bc_d = append(a_bc,cons(d, NULL));
+    list a_bc_d_e = append(a_bc_d,cons(e, NULL));
+    
+    print(lasel(a_bc_d_e));
+    f = 'y';
     printf("\n");
-    // lfree(pList);
-    print(car(lasel(pList)));      // car
+    print(car(lasel(a_bc_d_e)));
     printf("\n");
-    print(lasel(cdr(lasel(pList))));    // cdr
+    print(lasel(cdr(lasel(a_bc_d_e))));
+    f = 'y';
     printf("\n");
-    print(car(car(lasel(pList))));    // car(car(list))
+    print(lasel(cddr(lasel(a_bc_d_e))));
+    f = 'y';
+    printf("\n");
+    print(lasel(cdr(lasel(cddr(lasel(a_bc_d_e))))));
+    f = 'y';
+    
+    // print(lasel(pList));    // list as element
+    // printf("\n");
+    // // lfree(pList);
+    // print(car(lasel(pList)));      // car
+    // printf("\n");
+    // print(lasel(cdr(lasel(pList))));    // cdr
+    // printf("\n");
+    // print(car(car(lasel(pList))));    // car(car(list))
     // printf("\n");
     // print(lasel(cddr(lasel(pList))));   // cddr
-    lfree(pList);
+    // lfree(pList);
     return 0;
 }
