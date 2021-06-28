@@ -148,30 +148,19 @@ int main()
     list a_bc_d = append(a_bc,cons(d, NULL));
     list a_bc_d_e = append(a_bc_d,cons(e, NULL));
     
-    print(lasel(a_bc_d_e));
+    print(lasel(a_bc_d_e)); // print list
     f = 'y';
     printf("\n");
-    print(car(lasel(a_bc_d_e)));
+    print(car(lasel(a_bc_d_e))); // print car of the list
     printf("\n");
-    print(lasel(cdr(lasel(a_bc_d_e))));
+    print(lasel(cdr(lasel(a_bc_d_e)))); // print cdr of the list
     f = 'y';
+    // printf("\n");
+    // print(lasel(cddr(lasel(a_bc_d_e))));
+    // f = 'y';
     printf("\n");
-    print(lasel(cddr(lasel(a_bc_d_e))));
+    print((car(car(lasel(a_bc_d_e))))); // print car of the car of the list
     f = 'y';
-    printf("\n");
-    print(lasel(cddr(lasel(cddr(lasel(a_bc_d_e))))));
-    f = 'y';
-    
-    // print(lasel(pList));    // list as element
-    // printf("\n");
-    // // lfree(pList);
-    // print(car(lasel(pList)));      // car
-    // printf("\n");
-    // print(lasel(cdr(lasel(pList))));    // cdr
-    // printf("\n");
-    // print(car(car(lasel(pList))));    // car(car(list))
-    // printf("\n");
-    // print(lasel(cddr(lasel(pList))));   // cddr
-    // lfree(pList);
+    lfree(a_bc_d_e); // frees the list
     return 0;
 }
