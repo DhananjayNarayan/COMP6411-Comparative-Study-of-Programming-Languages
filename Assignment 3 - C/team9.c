@@ -91,7 +91,7 @@ void print(element e){
         printf(" %c ", e.a);
     }
     else if(e.type == LIST){
-        if(f == 'y'){
+        if(f == 'y' && e.l != NULL){
             printf("(");
             f = 'n';
         }
@@ -159,7 +159,7 @@ int main()
     print(lasel(cddr(lasel(a_bc_d_e))));
     f = 'y';
     printf("\n");
-    print(lasel(cdr(lasel(cddr(lasel(a_bc_d_e))))));
+    print(lasel(cddr(lasel(cddr(lasel(a_bc_d_e))))));
     f = 'y';
     
     // print(lasel(pList));    // list as element
