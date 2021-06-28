@@ -43,7 +43,14 @@ return newList;
 
 //Q4
 list append(list l1, list l2)
-{=
+{
+   if(l1 == NULL ){
+        return l2;
+    }
+    else if (l2 == NULL){
+        return l1;
+    }
+   else{
    list mergedlist = l1;
    struct _listnode * ptr = mergedlist;
    while(ptr->next != NULL){
@@ -51,6 +58,7 @@ list append(list l1, list l2)
     }
     ptr->next = l2;
     return mergedlist;
+   }
 }
 
 //Q5
