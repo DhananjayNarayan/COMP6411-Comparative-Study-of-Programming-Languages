@@ -102,27 +102,9 @@ void print(element e){
     }
 }
 
-void printel(element e){
-    if(e.type == ATOM){
-        printf(" %c ", e.a);
-    }
-    else if(e.type == LIST){
-        if (e.l == NULL){
-            // printf("NIL");
-        }
-        else{
-            printf("(");
-            printel(e.l->el);
-            printel(lasel(e.l->next));
-            printf(")");
-        }
-
-    }
-}
-
-
+// Q9
 void lfree(list lst){
-  list templist = lst, *pNext;
+  list templist = lst, pNext;
 
     while (NULL != templist)
     {
@@ -138,20 +120,19 @@ int main()
     element a = aasel('a');
     element b = aasel('b');
     element c = aasel('c');
-    element listEl = lasel(cons(b, cons(c, NULL)));
     element d = aasel('d');
     element e = aasel('e');
-    list list1 = cons(a, cons(listEl, cons(d, cons(e,NULL))));
-    printel(lasel(list1));    // list as element
+    list pList = cons(a, cons(lasel(cons(b, cons(c, NULL))), cons(d, cons(e,NULL))));
+    print(lasel(pList));    // list as element
     printf("\n");
-    // lfree(list1);
-    print(car(lasel(list1)));      // car
+    // lfree(pList);
+    print(car(lasel(pList)));      // car
     printf("\n");
-    printel(lasel(cdr(lasel(list1))));    // cdr
+    print(lasel(cdr(lasel(pList))));    // cdr
+    printf("\n");
+    print(car(car(lasel(pList))));    // car(car(list))
     // printf("\n");
-    // printel(lasel(cddr(lasel(list1))));   // cddr
-    printf("\n");
-    print(car(car(lasel(list1))));    // car(car(list))
-
+    // print(lasel(cddr(lasel(pList))));   // cddr
+    lfree(pList);
     return 0;
 }
